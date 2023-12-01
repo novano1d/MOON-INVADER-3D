@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Zombie
+  - Pistol
+  - Ammo
   layers:
   - Default
   - TransparentFX

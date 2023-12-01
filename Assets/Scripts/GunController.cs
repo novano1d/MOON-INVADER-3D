@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,8 +33,16 @@ public class GunController : MonoBehaviour
         shooting = false;
     }
 
+    private HealthController healthController;
+    public GameObject ammoDrop;
     private void shoot()
     {
+        //update ammo
+        healthController = GetComponentInParent<HealthController>();
+        if (healthController == null ) { Debug.LogError("Couldn't load health controller."); }
+        if (healthController.ammo == 0) return;
+        healthController.ammo -= 1;
+
         float weaponRange = 20f;
         float hitforce = 100f;
         readyToShoot = false;
@@ -50,7 +59,11 @@ public class GunController : MonoBehaviour
             {
                 Zombie z = hit.transform.GetComponent<Zombie>();
                 z.health -= 20;
-                if (z.health <= 0) Destroy(hit.transform.gameObject);
+                if (z.health <= 0)
+                {
+                    Destroy(hit.transform.gameObject);
+                    GameObject ammo = Instantiate(ammoDrop, hit.point, Quaternion.identity);
+                }
             }
         }
         GameObject decalobject = Instantiate(decal, hit.point + (hit.normal * 0.025f), Quaternion.identity) as GameObject;

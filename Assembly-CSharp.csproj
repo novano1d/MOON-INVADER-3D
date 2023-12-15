@@ -62,12 +62,15 @@
     <Compile Include="Assets\Scripts\FacePlayer.cs" />
     <Compile Include="Assets\Stagit\SkyboxEarthPlanets\script\skyboxspace_mouselook_v1.cs" />
     <Compile Include="Assets\Shaders\ShaderHandler.cs" />
+    <Compile Include="Assets\Scripts\BuildNav.cs" />
     <Compile Include="Assets\Fonts\cam.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\SpawnZombies.cs" />
     <Compile Include="Assets\Scripts\DeleteSpriteOnCollision.cs" />
     <Compile Include="Assets\Scripts\GunController.cs" />
     <Compile Include="Assets\Scripts\PlayerCam.cs" />
     <Compile Include="Assets\Scripts\Main Menu.cs" />
+    <Compile Include="Assets\Scripts\TerrainGeneration.cs" />
     <Compile Include="Assets\Stagit\SkyboxEarthPlanets\script\skyboxspace_demo_v1.cs" />
     <Compile Include="Assets\Scripts\Zombie.cs" />
   </ItemGroup>

@@ -13,6 +13,12 @@ public class Zombie : MonoBehaviour
     private bool ready = true;
     public float attackCoolDown = 0.3f;
 
+    private void Start()
+    {
+        Agent.enabled = false;
+        player = GameObject.Find("Player");
+    }
+
     void resetAttack()
     {
         ready = true;
@@ -36,7 +42,15 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.time > .1f) // let navmesh generate
+        {
+            Agent.enabled = true;
+        }
+
         attack();
-        Agent.SetDestination(player.transform.position);
+        if (Agent.enabled)
+        {
+            Agent.SetDestination(player.transform.position);
+        }
     }
 }
